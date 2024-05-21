@@ -33,7 +33,7 @@ export default client => {
 
         // Report if the command is not found
         if(command == null || command == undefined){
-            if(process.env.NODE_ENV === 'development') console.error(`Command ${interaction.commandName || interaction.customId} is not found.`);
+            if(process.env.NODE_ENV === 'development' || process.env.DEBUG) console.error(`Command ${interaction.commandName || interaction.customId} is not found.`);
             return;
         }
 
@@ -42,7 +42,7 @@ export default client => {
             await command.execute(interaction);
         } catch (error) {
             // Log the error to the console
-            if(process.env.NODE_ENV === 'development') console.error(error);
+            if(process.env.DEBUG) console.error(error);
             // Send an error message to the user
             // Check if the interaction is replied or deferred
             // If the interaction is replied or deferred, follow up with the error message

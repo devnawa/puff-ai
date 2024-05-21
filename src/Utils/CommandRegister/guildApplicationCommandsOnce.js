@@ -35,7 +35,7 @@ export default async (client, guildId) => {
         )
         return data
     }catch(e){
-        if (process.env.NODE_ENV == "development") console.error(`Could not create commands in guild ${guildId}`);
+        if (process.env.DEBUG) console.error(`Could not create commands in guild ${guildId}`);
         return null
     }
 

@@ -42,8 +42,8 @@ export default async client => {
                 { body : commands }
             )
         }catch(e){
-            if (process.env.NODE_ENV == "development") console.error(e);
-            if (process.env.NODE_ENV == "development") console.error(`Could not create commands in guild ${guild.id}`);
+            if (process.env.DEBUG) console.error(e);
+            console.error(`Could not create commands in guild ${guild.id}`);
         }
   
     }

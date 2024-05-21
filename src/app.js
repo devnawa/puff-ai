@@ -6,14 +6,18 @@ import mongoose from "mongoose";
 // Login to the database
 // Exit if the connection fails
 // Uncomment the code below to connect to the database
-// console.log("Connecting to the database...");
-// await mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_URL}`)
-// console.log("Connected to the database.");
+console.log("Connecting to the database...");
+await mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_URL}`).catch((err) => {
+    if(process.env.DEBUG) console.error(err);
+    console.error("Could not connect to the database. Exiting...");
+    process.exit(1)
+})
+console.log("Connected to the database.");
 
 // Create a new client instance
 // Required intents are passed as an array
 const client = new Client({
-    intents : [GatewayIntentBits.Guilds]
+    intents : [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers]
 });
 
 // Create a new property to store the interactions

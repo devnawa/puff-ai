@@ -10,9 +10,10 @@ export default client => {
         
         // Load the commands
         // Comment the code below during production
-        console.log("Loading commands...");
-        await guildApplicationCommands(client);
-        console.log("Commands loaded!");
+        // console.log("Loading commands...");
+        // await guildApplicationCommands(client);
+        // console.log("Commands loaded!");
+
     })
 
 }
