@@ -38,9 +38,13 @@ export class Client {
                 code : 400
             }
             if(error instanceof OpenAIError) return {
-                error : 500
+                code : 500,
+                error : "OpenAI Error"
             }
-            return null
+            return {
+                error : "Unknown Error",
+                code : 501
+            }
         })
 
 
@@ -69,7 +73,7 @@ export class Client {
 
         var generatedImage = await Client.generate(prompt, userId)
 
-        if(generatedImage.error) return new Error(error.code)
+        if(generatedImage.error) return new Error(error.code || 501)
 
         var imageBuffer = await Client.convert(generatedImage)
 

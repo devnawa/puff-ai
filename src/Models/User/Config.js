@@ -4,5 +4,5 @@ export const DailyLimits = {
     "1233329924929097758" : 3, // Fearie Dragon
     "1233329868104794122" : 3, // Wyvern
     "1223258152166752326" : 1, // Dragon Hatchling
-    "1220554654941712394" : 3  // Test
+    "1242908037958734012" : 4  // Test
 }
